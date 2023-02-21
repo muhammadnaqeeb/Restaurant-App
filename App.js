@@ -3,8 +3,10 @@ import { SafeAreaView, FlatList, ScrollView, StyleSheet, View , Text,Image} from
 import Search from './src/components/Search';
 import Header from './src/components/Header';
 import CategoryItem from './src/components/CategoryItem';
+import { useState } from 'react';
 
 export default function App() {
+  const [term, setterm] = useState("Burger");
   const CategoriesList = [
     {
       key: 1,
@@ -50,7 +52,12 @@ export default function App() {
             //itemData.index, itemData will be pass by React
             //itemData.item 
             return (
-              <CategoryItem title={itemData.item.name} imagePath={itemData.item.imagePath} />
+              <CategoryItem 
+              title={itemData.item.name} 
+              imagePath={itemData.item.imagePath} 
+              active = {itemData.item.name === term}
+              onPress={()=>setterm(itemData.item.name)}
+              />
             )
           }}
         />
