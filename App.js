@@ -43,7 +43,7 @@ export default function App() {
     // </SafeAreaView>
     <SafeAreaView style={styles.container}>
       <Header />
-      <Search />
+      <Search setterm={setterm}/>
       <FlatList
        horizontal
        showsHorizontalScrollIndicator={false}
