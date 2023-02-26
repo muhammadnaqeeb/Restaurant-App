@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { StyleSheet, Image, Text, TextInput, View, Pressable } from 'react-native';
+import { StyleSheet, Image, Text, View, Pressable } from 'react-native';
 import { elevation } from '../common/styles';
 function CategoryItem(props) {
     return (

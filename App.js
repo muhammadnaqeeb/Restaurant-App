@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, FlatList, ScrollView, StyleSheet, View , Text,Image} from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import Search from './src/components/Search';
 import Header from './src/components/Header';
-import CategoryItem from './src/components/CategoryItem';
 import { useState } from 'react';
+import Categories from './src/components/Categories';
 
 export default function App() {
   const [term, setterm] = useState("Burger");
@@ -44,23 +43,12 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Header />
       <Search setterm={setterm}/>
-      <FlatList
-       horizontal
-       showsHorizontalScrollIndicator={false}
-          data={CategoriesList}
-          renderItem={(itemData) => {
-            //itemData.index, itemData will be pass by React
-            //itemData.item 
-            return (
-              <CategoryItem 
-              title={itemData.item.name} 
-              imagePath={itemData.item.imagePath} 
-              active = {itemData.item.name === term}
-              onPress={()=>setterm(itemData.item.name)}
-              />
-            )
-          }}
-        />
+      <Categories 
+      CategoriesList = {CategoriesList} 
+      setterm={setterm}
+      term={term}
+      />
+      
 
     </SafeAreaView>
   );
